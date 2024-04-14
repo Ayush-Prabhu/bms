@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.bus-aside{
+  background-color: #f7b71d;
+  margin-top: -200px !important;
+  padding: 20px;
+  position: fixed;
+  margin-left: 0;
+  text-align: center;
+}
+
+.bus-aside li{
+  list-style: none;
+  font-size: 20px;
+  padding-bottom: 7.5px;
+  padding-top: 7.5px;
+  border-radius: 5px;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.bus-aside a{
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  transition: color 0.3s ease; 
+}
+
+.bus-aside li:hover{
+  background-color: #f7b71d;
+}
+
+.bus-aside li a:hover{
+  color: black;
+}
+
+.side-text{
+  margin-left: 40%;
+  margin-top: -150px;
+}

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +30,7 @@
     <link rel="stylesheet" href="css/jquery.timepicker.css">
     
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bmscss.css">
   </head>
   <body>
     
@@ -43,6 +51,10 @@
 	          <li class="nav-item"><a href="maintenance.html" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
+
+        <div>
+         <a href="logout.php" class="bms-login-btn">Logout</a> 
+        </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
@@ -58,36 +70,6 @@
             </div>
           </div>
           <div class="col-lg-2 col"></div>
-          <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
-          	<form action="#" class="request-form ftco-animate">
-          		<h2>Make your trip</h2>
-	    				<div class="form-group">
-	    					<label for="" class="label">Pick-up location</label>
-	    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-	    				</div>
-	    				<div class="form-group">
-	    					<label for="" class="label">Drop-off location</label>
-	    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-	    				</div>
-	    				<div class="d-flex">
-	    					<div class="form-group mr-2">
-	                <label for="" class="label">Pick-up date</label>
-	                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
-	              </div>
-	              <div class="form-group ml-2">
-	                <label for="" class="label">Drop-off date</label>
-	                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
-	              </div>
-              </div>
-              <div class="form-group">
-                <label for="" class="label">Pick-up time</label>
-                <input type="text" class="form-control" id="time_pick" placeholder="Time">
-              </div>
-	            <div class="form-group">
-	              <input type="submit" value="Search Vehicle" class="btn btn-primary py-3 px-4">
-	            </div>
-	    			</form>
-          </div>
         </div>
       </div>
     </div>	
