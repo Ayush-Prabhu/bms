@@ -1,7 +1,24 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location:login.php");
+}
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "bms";
+$data = mysqli_connect($host, $user, $password, $db);
+
+$sql = "SELECT * FROM depot";
+$result = mysqli_query($data, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - Bus</title>
+    <title>Local Bus - View Depot</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,8 +50,8 @@
 
 				<div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item active"><a href="bus.html" class="nav-link">Bus</a></li>
+	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="bus.php" class="nav-link">Bus</a></li>
 	          <li class="nav-item"><a href="employee.html" class="nav-link">Employee</a></li>
 	          <li class="nav-item"><a href="route.html" class="nav-link">Routes & Schedules</a></li>
 	          <li class="nav-item"><a href="ticket.html" class="nav-link">Tickets</a></li>
@@ -54,15 +71,34 @@
           <!-- <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end"> -->
           	<aside>
               <ul class="bus-aside">
-                <li><a href="">Add Depot</a></li>
-                <li><a href="">View Depot</a></li>
+                <li><a href="add_depot.php">Add Depot</a></li>
+                <li><a href="view_depot.php">View Depot</a></li>
                 <li><a href="">Add bus</a></li>
                 <li><a href="">View bus</a></li>
               </ul>
             </aside>
           <!-- </div> -->
-          <div class="col-lg-6 col side-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim error, repudiandae corporis provident, dolorum dignissimos culpa ipsa sint deserunt numquam iure, tempore ullam id vero quia? A iure nobis cumque ipsa atque, at, vel ad error eius reprehenderit vitae laboriosam sunt commodi sed est doloribus quia quasi sequi dicta numquam exercitationem voluptatem quis eligendi aspernatur! Eius?
+          <div class="col-lg-6 col side-text-addcontent">
+           <h3>Depot Data</h3>
+           <table border="1.5px">
+            <tr>
+              <th class="table_th">Depot ID</th>
+              <th class="table_th">Depot Name</th>
+            </tr>
+
+            <?php
+            while($info = $result -> fetch_assoc()){
+
+            
+              ?>
+              <tr>
+                <td class="table_td"><?php echo "{$info['depot_id']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['depot_name']}"; ?></td>
+                <?php
+            }
+                ?>
+            </tr>
+           </table>
           </div>
         </div>
       </div>
@@ -86,8 +122,6 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   </body>

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body{
-  overflow: hidden;
   font-family: "Poppins", sans-serif;
 }
 
@@ -9,7 +8,7 @@ body{
   background-color: #f7b71d;
   margin-top: -200px !important;
   padding: 20px;
-  position: fixed;
+  position: absolute;
   margin-left: 0;
   text-align: center;
 }
@@ -44,5 +43,72 @@ body{
 
 .side-text{
   margin-left: 40%;
-  margin-top: -150px;
+  margin-top: -130px;
+  background-color:#f7b71d ;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+label{
+  display: inline-block;
+  text-align:left;
+  width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+h3{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+ input[type="text"], input[type="number"]{
+  padding: 5px;
+  border-radius: 5px;
+ }
+
+.submit-btn{
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #2a2c2a;
+}
+
+table{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.table_th{
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  background-color: black;
+}
+
+.table_td{
+  padding: 10px;
+  color: black;
+}
+
+.side-text-addcontent{
+  margin-top: 0;
+  margin-left: 40%;
+  background-color:#f7b71d ;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
 }
