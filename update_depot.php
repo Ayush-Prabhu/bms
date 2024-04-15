@@ -1,48 +1,34 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
-
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-if(isset($_POST['add_depot'])){
-  $depotid = $_POST['depot_id'];
-  $depotname = $_POST['depot_name'];
-
-  $check = "SELECT depot_id FROM depot WHERE depot_id = '$depotid'";
-  $check_user = mysqli_query($data, $check);
-  $row_count = mysqli_num_rows($check_user);
-  if($row_count == 1){
-    echo "<script type = 'text/javascript'>
-      alert('Depot ID already exists')
-      </script>";
+  session_start();
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
   }
-  else{
-    $sql = "INSERT INTO depot(depot_id, depot_name) values('$depotid', '$depotname')";
-    $result = mysqli_query($data, $sql);
-    if($result){
-      echo "<script type = 'text/javascript'>
-      alert('Depot added successfully')
-      </script>";
-    }
-    else{
-      echo "<script type = 'text/javascript'>
-      alert('Depot add failed')
-      </script>";
+  $host = "localhost";
+  $user = "root";
+  $password = "";
+  $db = "bms";
+  $data = mysqli_connect($host, $user, $password, $db);
+  $id = $_GET['depotid'];
+  $sql = "SELECT * FROM depot WHERE depot_id = '$id'";
+  $result = mysqli_query($data,$sql);
+  $info = $result->fetch_assoc();
+
+  if(isset($_POST['update_depot'])){
+    $depotid = $_POST['did'];
+    $depotname = $_POST['dname'];
+    $query = "UPDATE depot set depot_name = '$depotname' WHERE depot_id = '$id'";
+    $result2 = mysqli_query($data, $query);
+    if($result2){
+      header("location:view_depot.php");
     }
   }
-}
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - Add Depot</title>
+    <title>Local Bus - Depot Update</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -92,7 +78,6 @@ if(isset($_POST['add_depot'])){
     <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
-          <!-- <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end"> -->
           	<aside>
               <ul class="bus-aside">
                 <li><a href="add_depot.php">Add Depot</a></li>
@@ -101,21 +86,24 @@ if(isset($_POST['add_depot'])){
                 <li><a href="">View bus</a></li>
               </ul>
             </aside>
-          <!-- </div> -->
-          <div class="col-lg-6 col side-text">
-            <h3>Add Bus Depot</h3>
+          <div class="col-lg-6 col side-text" style="color: black;">
+            <h3>Update Depot</h3>
             <div>
-              <form action="" method="POST">
-              <div>
+              <form action="#" method="POST">
+                <div>
                   <label>Depot ID</label>
-                  <input type="number" name="depot_id">
+                  <input type="number" name="did" value="<?php
+                  echo "{$info['depot_id']}";
+                  ?>" disabled>
                 </div>
                 <div>
                   <label>Depot Name</label>
-                  <input type="text" name="depot_name">
+                  <input type="text" name="dname" value="<?php
+                  echo "{$info['depot_name']}";
+                  ?>">
                 </div>
                 <div>
-                  <input type="submit" name="add_depot" value="Add Depot" class="submit-btn">
+                  <input type="submit" name="update_depot" value="Update" class="submit-btn">
                 </div>
               </form>
             </div>

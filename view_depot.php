@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
@@ -80,24 +81,32 @@ $result = mysqli_query($data, $sql);
           <!-- </div> -->
           <div class="col-lg-6 col side-text-addcontent">
            <h3>Depot Data</h3>
+           <?php
+           if($_SESSION['message']){
+            echo $_SESSION['message'];
+           }
+           unset($_SESSION['message']);
+           ?>
            <table border="1.5px">
             <tr>
               <th class="table_th">Depot ID</th>
               <th class="table_th">Depot Name</th>
+              <th class="table_th">Delete</th>
+              <th class="table_th">Update</th>
             </tr>
 
             <?php
-            while($info = $result -> fetch_assoc()){
-
-            
-              ?>
+            while($info = $result -> fetch_assoc()){            
+            ?>
               <tr>
                 <td class="table_td"><?php echo "{$info['depot_id']}"; ?></td>
                 <td class="table_td"><?php echo "{$info['depot_name']}"; ?></td>
-                <?php
-            }
-                ?>
+                <td class="table_td"><?php echo "<a onClick=\"javascript:return confirm('Do you want to delete this record?')\" style='color:white; background-color:#5d1302; padding:8px 10px 8px 10px; border-radius:15px;' href = 'delete.php?depotid={$info['depot_id']}'>Delete</a>"; ?></td>
+                <td class="table_td"><?php echo "<a href='update_depot.php?depotid={$info['depot_id']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
             </tr>
+            <?php
+            }
+            ?>
            </table>
           </div>
         </div>

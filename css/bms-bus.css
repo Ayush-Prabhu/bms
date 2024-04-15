@@ -2,6 +2,7 @@
 
 body{
   font-family: "Poppins", sans-serif;
+  color: green;
 }
 
 .bus-aside{
@@ -9,7 +10,7 @@ body{
   margin-top: -200px !important;
   padding: 20px;
   position: absolute;
-  margin-left: 0;
+  margin-left: -100px;
   text-align: center;
 }
 
@@ -42,12 +43,13 @@ body{
 }
 
 .side-text{
-  margin-left: 40%;
+  margin-left: 30%;
   margin-top: -130px;
   background-color:#f7b71d ;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
+  width: 100%;
 }
 
 label{
@@ -70,9 +72,11 @@ h3{
  input[type="text"], input[type="number"]{
   padding: 5px;
   border-radius: 5px;
+  margin-bottom: 15px;
  }
 
 .submit-btn{
+  margin-bottom: 5px;
   padding: 10px 20px;
   background-color: black;
   color: white;
@@ -105,8 +109,8 @@ table{
 }
 
 .side-text-addcontent{
-  margin-top: 0;
-  margin-left: 40%;
+  margin-top: -20px;
+  margin-left: 30%;
   background-color:#f7b71d ;
   text-align: center;
   padding: 20px;
