@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - Employee</title>
+    <title>Local Bus - Routes</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bmscss.css">
   </head>
   <body>
     
@@ -36,28 +35,24 @@
 
 				<div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="bus.html" class="nav-link">Bus</a></li>
-	          <li class="nav-item active"><a href="employee.html" class="nav-link">Employee</a></li>
-	          <li class="nav-item"><a href="route.html" class="nav-link">Routes & Schedules</a></li>
-	          <li class="nav-item"><a href="ticket.html" class="nav-link">Tickets</a></li>
-	          <li class="nav-item"><a href="maintenance.html" class="nav-link">Maintenance</a></li>
+	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="bus.php" class="nav-link">Bus</a></li>
+	          <li class="nav-item"><a href="employee.php" class="nav-link">Employee</a></li>
+	          <li class="nav-item active"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
+	          <li class="nav-item"><a href="ticket.php" class="nav-link">Tickets</a></li>
+	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
-        <div>
-          <a href="login.php" class="bms-login-btn">Logout</a> 
-         </div>
-	    </div>
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Pricing <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Car Rates Pricing</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Choose Your Car</h1>
           </div>
         </div>
       </div>
@@ -81,8 +76,6 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   </body>

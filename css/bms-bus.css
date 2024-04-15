@@ -116,3 +116,17 @@ table{
   padding: 20px;
   border-radius: 10px;
 }
+
+.radio-btn{
+  color: black;
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  font-family:"Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.rad{
+  display: inline;
+  margin: 35px;
+}

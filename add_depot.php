@@ -76,10 +76,10 @@ if(isset($_POST['add_depot'])){
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="bus.php" class="nav-link">Bus</a></li>
-	          <li class="nav-item"><a href="employee.html" class="nav-link">Employee</a></li>
-	          <li class="nav-item"><a href="route.html" class="nav-link">Routes & Schedules</a></li>
-	          <li class="nav-item"><a href="ticket.html" class="nav-link">Tickets</a></li>
-	          <li class="nav-item"><a href="maintenance.html" class="nav-link">Maintenance</a></li>
+	          <li class="nav-item"><a href="employee.php" class="nav-link">Employee</a></li>
+	          <li class="nav-item"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
+	          <li class="nav-item"><a href="ticket.php" class="nav-link">Tickets</a></li>
+	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
         <div>
@@ -92,16 +92,14 @@ if(isset($_POST['add_depot'])){
     <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
-          <!-- <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end"> -->
           	<aside>
               <ul class="bus-aside">
                 <li><a href="add_depot.php">Add Depot</a></li>
                 <li><a href="view_depot.php">View Depot</a></li>
-                <li><a href="">Add bus</a></li>
-                <li><a href="">View bus</a></li>
+                <li><a href="add_bus.php">Add bus</a></li>
+                <li><a href="view_bus.php">View bus</a></li>
               </ul>
             </aside>
-          <!-- </div> -->
           <div class="col-lg-6 col side-text">
             <h3>Add Bus Depot</h3>
             <div>

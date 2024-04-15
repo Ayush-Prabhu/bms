@@ -1,14 +1,52 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("location:login.php");
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location:login.php");
+}
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "bms";
+$data = mysqli_connect($host, $user, $password, $db);
+if(isset($_POST['add_bus'])){
+  $busid = $_POST['bus_id'];
+  $busname = $_POST['bus_name'];
+  $mod = $_POST['model'];
+  $cap = $_POST['capacity'];
+  $owner = $_POST['ownership'];
+  $di = $_POST['depot_id'];
+
+  $check = "SELECT bus_id FROM bus WHERE bus_id = '$busid'";
+  $check_user = mysqli_query($data, $check);
+  $row_count = mysqli_num_rows($check_user);
+  if($row_count == 1){
+    echo "<script type = 'text/javascript'>
+      alert('Bus ID already exists')
+      </script>";
   }
+  else{
+    $sql = "INSERT INTO bus(bus_id, bus_name, model, capacity, ownership, depot_id) values('$busid', '$busname', '$mod', '$cap', '$owner', '$di' )";
+    $result = mysqli_query($data, $sql);
+    if($result){
+      echo "<script type = 'text/javascript'>
+      alert('Bus added successfully')
+      </script>";
+    }
+    else{
+      echo "<script type = 'text/javascript'>
+      alert('Bus add failed')
+      </script>";
+    }
+  }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - Bus</title>
+    <title>Local Bus - Add Bus</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -66,8 +104,42 @@
                 <li><a href="view_bus.php">View bus</a></li>
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text" style="color: black; font-size: 20px">
-            Welcome to Local Bus Management System!<br> You can add and view buses and depot here.
+          <div class="col-lg-6 col side-text">
+            <h3>Add Bus</h3>
+            <div>
+              <form action="#" method="POST">
+              <div>
+                  <label>Bus ID</label>
+                  <input type="number" name="bus_id">
+                </div>
+                <div>
+                  <label>Bus Name</label>
+                  <input type="text" name="bus_name">
+                </div>
+                <div>
+                  <label>Bus Model</label>
+                  <input type="text" name="model">
+                </div>
+                <div>
+                  <label>Capacity</label>
+                  <input type="number" name="capacity">
+                </div>
+                <div class="radio-btn">
+                  <label style="font-weight:700; font-size:16px;">Ownership</label>
+                  <div class="rad">
+                  <input type="radio" name="ownership" value="public">Public
+                  <input type="radio" name="ownership" value="private">Private
+                  </div>
+                </div>
+                <div>
+                  <label>Depot ID</label>
+                  <input type="number" name="depot_id">
+                </div>
+                <div>
+                  <input type="submit" name="add_bus" value="Add Bus" class="submit-btn">
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
