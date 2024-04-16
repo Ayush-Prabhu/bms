@@ -1,25 +1,40 @@
 <?php
-error_reporting(0);
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
+  session_start();
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+  }
+  $host = "localhost";
+  $user = "root";
+  $password = "";
+  $db = "bms";
+  $data = mysqli_connect($host, $user, $password, $db);
+  $id = $_GET['busid'];
+  $sql = "SELECT * FROM bus WHERE bus_id = '$id'";
+  $result = mysqli_query($data,$sql);
+  $info = $result->fetch_assoc();
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-
-$sql = "SELECT * FROM depot";
-$result = mysqli_query($data, $sql);
-
+  if(isset($_POST['update_bus'])){
+    echo "isset";
+    $busid = $_POST['bid'];
+    $busname = $_POST['bname'];
+    $model = $_POST['model'];
+    $cap = $_POST['cap'];
+    $owner = $_POST['own'];
+    $di = $_POST['did'];
+    $query = "UPDATE bus set bus_name = '$busname', model = '$model', capacity='$cap', ownership ='$owner', depot_id = '$di' WHERE bus_id = '$busid'";
+    
+    $result2 = mysqli_query($data, $query);
+    if($result2){
+      header("location:view_bus.php");
+    }
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - View Depot</title>
+    <title>Local Bus - Bus Update</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,38 +89,49 @@ $result = mysqli_query($data, $sql);
                 <li><a href="add_depot.php">Add Depot</a></li>
                 <li><a href="view_depot.php">View Depot</a></li>
                 <li><a href="add_bus.php">Add bus</a></li>
-                <li><a href="view_bus.php">View bus</a></li>
+                <li><a href="update_bus.php">View bus</a></li>
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text-addcontent">
-           <h3>Depot Data</h3>
-           <?php
-           if($_SESSION['message']){
-            echo $_SESSION['message'];
-           }
-           unset($_SESSION['message']);
-           ?>
-           <table border="1.5px">
-            <tr>
-              <th class="table_th">Depot ID</th>
-              <th class="table_th">Depot Name</th>
-              <th class="table_th">Delete</th>
-              <th class="table_th">Update</th>
-            </tr>
-
-            <?php
-            while($info = $result -> fetch_assoc()){            
-            ?>
-              <tr>
-                <td class="table_td"><?php echo "{$info['depot_id']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['depot_name']}"; ?></td>
-                <td class="table_td"><?php echo "<a onClick=\"javascript:return confirm('Do you want to delete this record?')\" style='color:white; background-color:#5d1302; padding:8px 10px 8px 10px; border-radius:15px;' href = 'delete.php?depotid={$info['depot_id']}'>Delete</a>"; ?></td>
-                <td class="table_td"><?php echo "<a href='update_depot.php?depotid={$info['depot_id']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
-            </tr>
-            <?php
-            }
-            ?>
-           </table>
+          <div class="col-lg-6 col side-text" style="color: black;">
+            <h3>Update Bus</h3>
+            <div>
+              <form action="#" method="POST">
+                <div>
+                  <label>Bus ID</label>
+                  <input type="number" name="bid" value="<?php
+                  echo "{$info['bus_id']}";
+                  ?>" disabled>
+                </div>
+                <div>
+                  <label>Bus Name</label>
+                  <input type="text" name="bname" value="<?php
+                  echo "{$info['bus_name']}";
+                  ?>">
+                </div>
+                <div>
+                  <label>Model</label>
+                  <input type="text" name="model" value="<?php
+                  echo "{$info['model']}";
+                  ?>">
+                </div>
+                <div>
+                  <label>Capacity</label>
+                  <input type="number" name="cap" value="<?php echo "{$info['capacity']}";?>">
+                </div>
+                <div>
+                  <label>Ownership</label>
+                  <input type="radio" name="own" value="Public" <?php if ($info['ownership'] == "Public") echo "checked"; ?>>Public
+                  <input type="radio" name="own" value="Private" <?php if ($info['ownership'] == "Private") echo "checked"; ?>>Private
+                </div>
+                <div>
+                  <label>Depot ID</label>
+                  <input type="number" name="did" value="<?php echo "{$info['depot_id']}";?>">
+                </div>
+                <div>
+                  <input type="submit" name="update_bus" value="Update" class="submit-btn">
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -126,6 +152,8 @@ $result = mysqli_query($data, $sql);
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
     

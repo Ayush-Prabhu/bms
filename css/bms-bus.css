@@ -121,7 +121,7 @@ table{
   color: black;
   display: inline-block;
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   font-family:"Poppins", sans-serif;
   font-weight: 500;
 }
@@ -129,4 +129,121 @@ table{
 .rad{
   display: inline;
   margin: 35px;
+}
+
+.side-text-viewbus{
+  background-color: #f7b71d;
+  width: 70%;
+  margin: auto;
+  margin-left: 20%;
+  padding: auto;
+  padding: 20px;
+  margin-top: 8%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .side-text-viewbus {
+    width: 90%; 
+    position: absolute;
+    margin-top: 65%;
+    margin-left: 0 !important;
+  }
+
+  table{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+}
+.rad-emp{
+  display: inline-block;
+  margin: 50px;
+}
+
+.radio-btn-emp{
+  color: black;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  font-size: 16px;
+  font-family:"Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.side-text-viewemp{
+  display: flex;
+  flex-direction: column;
+  background-color: #f7b71d;
+  width: 60%;
+  margin: auto;
+  margin-left: 20%;
+  padding: auto;
+  padding: 20px;
+  margin-top: 8%;
+  border-radius: 10px;
+  text-align:center;
+}
+.gender-view{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: 0;
+}
+
+.side-text-viewempdata{
+  display: flex;
+  flex-direction: column;
+  background-color: #f7b71d;
+  width: 110%;
+  margin: auto;
+  margin-left: 11%;
+  padding: auto;
+  padding: 20px;
+  margin-top: 8%;
+  border-radius: 10px;
+  text-align:center;
+}
+
+.bus-aside-emp{
+  background-color: #f7b71d;
+  margin-top: 418px !important;
+  padding: 20px;
+  position: absolute;
+  margin-left: -155px;
+  text-align: center;
+}
+
+.bus-aside-emp li{
+  list-style: none;
+  font-size: 20px;
+  padding-bottom: 7.5px;
+  padding-top: 7.5px;
+  border-radius: 5px;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.bus-aside-emp a{
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  transition: color 0.3s ease; 
+}
+
+.bus-aside-emp li:hover{
+  background-color: #f7b71d;
+}
+
+.bus-aside-emp li a:hover{
+  color: black;
+}
+
+.hero-wrap{
+  height : 1000px !important;
 }
