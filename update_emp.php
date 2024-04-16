@@ -94,13 +94,13 @@
                     <label>Employee ID</label>
                     <input type="number" name="empid" value="<?php
                     echo "{$info['emp_id']}";
-                    ?>" disabled>
+                    ?>" disabled required>
                   </div>
                   <div>
                     <label>First Name</label>
                     <input type="text" name="firstname" value="<?php
                     echo "{$info['first_name']}";
-                    ?>">
+                    ?>" required>
                   </div>
                   <div>
                     <label>Last name</label>
@@ -112,7 +112,7 @@
                     <label>Date of Birth</label>
                     <input type="date" name="dateofbith" value="<?php
                     echo "{$info['dob']}";
-                    ?>">
+                    ?>" required>
                   </div>
 
                   <div>
@@ -128,12 +128,12 @@
                   <div class="gender-view">
                     <label style="margin-left: 250px;">Gender</label>
                     <div>
-                        <input type="radio" id="male" name="genderselect" <?php if($info['gender'] == "male") echo "checked"; ?>>
+                        <input type="radio" value="male" name="genderselect" <?php if($info['gender'] == "male") echo "checked"; ?> required>
                         <label for="male">Male</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="female" name="genderselect" <?php if($info['gender'] == "female") echo "checked"; ?>>
+                        <input type="radio" value="female" name="genderselect" <?php if($info['gender'] == "female") echo "checked"; ?> required>
                         <label for="female">Female</label>
                     </div>                    
                 </div>
@@ -155,7 +155,7 @@
                     <label>Salary</label>
                     <input type="number" name="monthlysalary" value="<?php
                     echo "{$info['salary']}";
-                    ?>">
+                    ?>"required>
                   </div>
                   <div>
                     <input type="submit" name="update_employee" value="Update" class="submit-btn">

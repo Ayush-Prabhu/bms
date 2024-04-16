@@ -1,9 +1,9 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("location:login.php");
-  }
-  
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location:login.php");
+}
+
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -65,7 +65,7 @@ if(isset($_POST['add_employee'])){
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
   </head>
-  <body style="height:100%">
+  <body>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
