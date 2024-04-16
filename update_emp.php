@@ -8,15 +8,13 @@
   $password = "";
   $db = "bms";
   $data = mysqli_connect($host, $user, $password, $db);
-  if($_GET['empid']){
-    $id = $_GET['empid'];
-    $sql = "SELECT * FROM employee WHERE emp_id = '$id'";
-    $result = mysqli_query($data,$sql);
-    $info = $result->fetch_assoc();
-  }
+  $id = $_GET['empid'];
+  $sql = "SELECT * FROM employee WHERE emp_id = '$id'";
+  $result = mysqli_query($data,$sql);
+  $info = $result->fetch_assoc();
 
   if(isset($_POST['update_employee'])){
-    $empid = $_POST['emp_id'];
+    $ed = $_POST['emp_id'];
     $firstname = $_POST['first_name'];
     $lastname = $_POST['last_name'];
     $dob = $_POST['dob'];

@@ -36,7 +36,7 @@ $result = mysqli_query($data, $sql);
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
   </head>
-  <body class="show fullscreen">
+  <body>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -133,10 +133,7 @@ $result = mysqli_query($data, $sql);
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
-    
   </body>
 </html>
