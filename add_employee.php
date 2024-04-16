@@ -15,7 +15,7 @@ if(isset($_POST['add_employee'])){
   $lastname = $_POST['last_name'];
   $dob = $_POST['dob'];
   $tp = $_POST['type'];
-  $gend = $_POST['gender'];
+  $gend = $_POST['genderselect'];
   $ln = $_POST['license_number'];
   $phone = $_POST['phone_no'];
   $sal = $_POST['salary'];
@@ -127,17 +127,20 @@ if(isset($_POST['add_employee'])){
                     <option value="both">Both</option>
                   </select>
                 </div>
+
                 <div class="gender-view">
                   <label style="margin-left:250px;">Gender</label>
                   <div>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="genderselect" value="male" checked>
                     <label for="male">Male</label>
                   </div>
+
                   <div>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="genderselect" value="female">
                     <label for="female">Female</label>
                   </div>
                 </div>
+
                 <div>
                   <label>License Number</label>
                   <input type="text" name="license_number">
