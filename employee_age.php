@@ -11,14 +11,14 @@ $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
 
-$sql = "SELECT * FROM employee";
+$sql = "SELECT * FROM employee_age";
 $result = mysqli_query($data, $sql);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - View Employee</title>
+    <title>Local Bus - Sort Employee By Salary</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -65,7 +65,7 @@ $result = mysqli_query($data, $sql);
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           	<aside>
-              <ul class="bus-aside-emp">
+              <ul class="bus-aside-emp" style="margin-top:194px !important;">
                 <li><a href="add_employee.php">Add Employee</a></li>
                 <li><a href="view_employee.php">View Employee</a></li>
                 <li><a href="sortby_firstname.php">Sort by Name</a></li>
@@ -73,7 +73,7 @@ $result = mysqli_query($data, $sql);
                 <li><a href="employee_age.php">Employee age</a></li>
               </ul>
             </aside>
-            <div class="side-text-viewempdata">
+            <div class="side-text-viewempdata" style ="margin-left:25%">
            <h3>Employee Data</h3>
            <?php
            if($_SESSION['message']){
@@ -86,14 +86,7 @@ $result = mysqli_query($data, $sql);
               <th class="table_th">Employee ID</th>
               <th class="table_th">First Name</th>
               <th class="table_th">Last Name</th>
-              <th class="table_th">Date of Birth</th>
-              <th class="table_th">Type</th>
-              <th class="table_th">Gender</th>
-              <th class="table_th">License Number</th>
-              <th class="table_th">Phone Number</th>
-              <th class="table_th">Salary</th>
-              <th class="table_th">Delete</th>
-              <th class="table_th">Update</th>
+              <th class="table_th">Age</th>
             </tr>
 
             <?php
@@ -103,14 +96,7 @@ $result = mysqli_query($data, $sql);
                 <td class="table_td"><?php echo "{$info['emp_id']}"; ?></td>
                 <td class="table_td"><?php echo "{$info['first_name']}"; ?></td>
                 <td class="table_td"><?php echo "{$info['last_name']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['dob']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['type']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['gender']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['license_number']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['phone_no']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['salary']}"; ?></td>
-                <td class="table_td"><?php echo "<a onClick=\"javascript:return confirm('Do you want to delete this record?')\" style='color:white; background-color:#5d1302; padding:8px 10px 8px 10px; border-radius:15px;' href = 'delete_emp.php?empid={$info['emp_id']}'>Delete</a>"; ?></td>
-                <td class="table_td"><?php echo "<a href='update_emp.php?empid={$info['emp_id']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
+                <td class="table_td"><?php echo "{$info['age']}"; ?></td>
             </tr>
             <?php
             }

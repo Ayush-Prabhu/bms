@@ -11,14 +11,14 @@ $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
 
-$sql = "SELECT * FROM employee";
+$sql = "SELECT * FROM sort_by_name";
 $result = mysqli_query($data, $sql);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - View Employee</title>
+    <title>Local Bus - Sort Employee By Name</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -92,8 +92,6 @@ $result = mysqli_query($data, $sql);
               <th class="table_th">License Number</th>
               <th class="table_th">Phone Number</th>
               <th class="table_th">Salary</th>
-              <th class="table_th">Delete</th>
-              <th class="table_th">Update</th>
             </tr>
 
             <?php
@@ -109,8 +107,6 @@ $result = mysqli_query($data, $sql);
                 <td class="table_td"><?php echo "{$info['license_number']}"; ?></td>
                 <td class="table_td"><?php echo "{$info['phone_no']}"; ?></td>
                 <td class="table_td"><?php echo "{$info['salary']}"; ?></td>
-                <td class="table_td"><?php echo "<a onClick=\"javascript:return confirm('Do you want to delete this record?')\" style='color:white; background-color:#5d1302; padding:8px 10px 8px 10px; border-radius:15px;' href = 'delete_emp.php?empid={$info['emp_id']}'>Delete</a>"; ?></td>
-                <td class="table_td"><?php echo "<a href='update_emp.php?empid={$info['emp_id']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
             </tr>
             <?php
             }

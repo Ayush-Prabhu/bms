@@ -75,6 +75,8 @@ $result = mysqli_query($data, $sql);
                 <li><a href="view_depot.php">View Depot</a></li>
                 <li><a href="add_bus.php">Add bus</a></li>
                 <li><a href="view_bus.php">View bus</a></li>
+                <li><a href="view_publicbus.php">View public buses</a></li>
+                <li><a href="view_privatebus.php">View private buses</a></li>
               </ul>
             </aside>
           <div class="side-text-viewbus">

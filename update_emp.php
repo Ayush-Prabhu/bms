@@ -110,7 +110,7 @@
                   </div>
                   <div>
                     <label>Date of Birth</label>
-                    <input type="date" name="dateofbith" value="<?php
+                    <input type="date" name="dateofbirth" value="<?php
                     echo "{$info['dob']}";
                     ?>" required>
                   </div>
