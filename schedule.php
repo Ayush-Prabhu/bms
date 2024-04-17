@@ -116,9 +116,10 @@ if(isset($_POST['add_schedule'])){
           <aside>
             <ul class="bus-aside">
               <li><a href="route.php">Add Route</a></li>
-              <li><a href="view_schedule.php">View Schedules</a></li><!--pending-->
-              <li><a href="schedule.php">Add Schedule</a></li><!--pending-->
-              <li><a href="delete_route.php">Delete Route</a></li><!--pending-->
+              <li><a href="view_route.php">View Routes</a></li>
+              <li><a href="schedule.php">Add Schedule</a></li>
+              <li><a href="view_schedule.php">View Schedules</a></li>
+              <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
             </ul>
           </aside>
           <div class="col-lg-6 col side-text">
