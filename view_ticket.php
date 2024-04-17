@@ -11,7 +11,7 @@ $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
 
-$sql = "SELECT * FROM route";
+$sql = "SELECT * FROM ticket";
 $result = mysqli_query($data, $sql);
 
 ?>
@@ -52,10 +52,10 @@ $result = mysqli_query($data, $sql);
 				<div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="bus.php" class="nav-link">Bus</a></li>
+	          <li class="nav-item active"><a href="bus.php" class="nav-link">Bus</a></li>
 	          <li class="nav-item"><a href="employee.php" class="nav-link">Employee</a></li>
-	          <li class="nav-item active"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
-	          <li class="nav-item"><a href="ticket.php" class="nav-link">Tickets</a></li>
+	          <li class="nav-item"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
+	          <li class="nav-item active"><a href="ticket.php" class="nav-link">Tickets</a></li>
 	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
@@ -71,11 +71,8 @@ $result = mysqli_query($data, $sql);
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           	<aside>
               <ul class="bus-aside">
-                <li><a href="route.php">Add Route</a></li>
-                <li><a href="view_route.php">View Route</a></li>
-                <li><a href="schedule.php">Add Schedule</a></li>
-                <li><a href="view_schedule.php">View Schedules</a></li>
-                <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
+                <li><a href="add_ticket.php">Add Ticket</a></li>
+                <li><a href="view_ticket.php">View Ticket</a></li>
               </ul>
             </aside>
           <div class="col-lg-6 col side-text-addcontent">
@@ -88,24 +85,22 @@ $result = mysqli_query($data, $sql);
            ?>
            <table border="1.5px">
             <tr>
-              <th class="table_th">route ID</th>
-              <th class="table_th">Start Point</th>
-              <th class="table_th">Stop Point</th>
-              <th class="table_th">Distance</th>
-              <th class="table_th">Number of Stops</th>
-              <th class="table_th">Update</th>
+              <th class="table_th">Ticket ID</th>
+              <th class="table_th">Source ID</th>
+              <th class="table_th">Destination ID</th>
+              <th class="table_th">Fare</th>
+              <th class="table_th">Delete</th>
             </tr>
 
             <?php
             while($info = $result -> fetch_assoc()){   
             ?>
               <tr>
-                <td class="table_td"><?php echo "{$info['ROUTE_ID']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['START_PoinT']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['STOP_PoinT']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['DISTANCE']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['NO_OF_STOPS']}"; ?></td>
-                <td class="table_td"><?php echo "<a href='update_route.php?routeid={$info['ROUTE_ID']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
+                <td class="table_td"><?php echo "{$info['ticket_id']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['source_id']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['destination_id']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['fare']}"; ?></td>
+                <td class="table_td"><?php echo "<a onClick=\"javascript:return confirm('Do you want to delete this ticket?')\" style='color:white; background-color:#5d1302; padding:8px 10px 8px 10px; border-radius:15px;' href = 'delete_ticket.php?ticketid={$info['ticket_id']}'>Delete</a>"; ?></td>
             </tr>
             <?php
             }

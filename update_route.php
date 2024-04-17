@@ -1,25 +1,39 @@
 <?php
-error_reporting(0);
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
+  session_start();
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+  }
+  $host = "localhost";
+  $user = "root";
+  $password = "";
+  $db = "bms";
+  $data = mysqli_connect($host, $user, $password, $db);
+  $id = $_GET['routeid'];
+  $sql = "SELECT * FROM route WHERE route_id = '$id'";
+  $result = mysqli_query($data,$sql);
+  $info = $result->fetch_assoc();
+  
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-
-$sql = "SELECT * FROM route";
-$result = mysqli_query($data, $sql);
-
+  if(isset($_POST['update_route'])){
+    $routeid = $_POST['rid'];
+    $startpoint = $_POST['startpt'];
+    $stoppoint = $_POST['stoppt'];
+    $distance = $_POST['dist'];
+    $no_of_stops = $_POST['no_of_stops'];
+    
+    $query = "UPDATE route set start_point = '$startpoint',stop_point='$stoppoint',distance='$distance',no_of_stops='$no_of_stops' WHERE route_id = '$id'";
+    $result2 = mysqli_query($data, $query);
+    if($result2){
+      header("location:view_route.php");
+    }
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - View route</title>
+    <title>Local Bus - Route Update</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,39 +92,45 @@ $result = mysqli_query($data, $sql);
                 <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text-addcontent">
-           <h3>route Data</h3>
-           <?php
-           if($_SESSION['message']){
-            echo $_SESSION['message'];
-           }
-           unset($_SESSION['message']);
-           ?>
-           <table border="1.5px">
-            <tr>
-              <th class="table_th">route ID</th>
-              <th class="table_th">Start Point</th>
-              <th class="table_th">Stop Point</th>
-              <th class="table_th">Distance</th>
-              <th class="table_th">Number of Stops</th>
-              <th class="table_th">Update</th>
-            </tr>
-
-            <?php
-            while($info = $result -> fetch_assoc()){   
-            ?>
-              <tr>
-                <td class="table_td"><?php echo "{$info['ROUTE_ID']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['START_PoinT']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['STOP_PoinT']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['DISTANCE']}"; ?></td>
-                <td class="table_td"><?php echo "{$info['NO_OF_STOPS']}"; ?></td>
-                <td class="table_td"><?php echo "<a href='update_route.php?routeid={$info['ROUTE_ID']}' style='color:white; background-color:#010055; padding:8px 10px 8px 10px; border-radius:15px;'>Update</a>"; ?></td>
-            </tr>
-            <?php
-            }
-            ?>
-           </table>
+          <div class="col-lg-6 col side-text" style="color: black;">
+            <h3>Update Route</h3>
+            <div>
+              <form action="#" method="POST">
+                <div>
+                  <label>Route ID</label>
+                  <input type="number" name="rid" value="<?php
+                  echo "{$info['ROUTE_ID']}";
+                  ?>" disabled>
+                </div>
+                <div>
+                  <label>Start Point</label>
+                  <input type="text" name="startpt" value="<?php
+                  echo "{$info['START_PoinT']}";
+                  ?>" >
+                </div>
+                <div>
+                  <label>Stop Point</label>
+                  <input type="text" name="stoppt" value="<?php
+                  echo "{$info['STOP_PoinT']}";
+                  ?>">
+                </div>
+                <div>
+                  <label>Distance</label>
+                  <input type="number" name="distance" value="<?php
+                  echo "{$info['DISTANCE']}";
+                  ?>" >
+                </div>
+                <div>
+                  <label>Number of Stops</label>
+                  <input type="number" name="no_of_stops" value="<?php
+                  echo "{$info['NO_OF_STOPS']}";
+                  ?>" >
+                </div>
+                <div>
+                  <input type="submit" name="update_route" value="Update" class="submit-btn">
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -131,6 +151,8 @@ $result = mysqli_query($data, $sql);
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
     
