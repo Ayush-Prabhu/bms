@@ -14,16 +14,16 @@
   $info = $result->fetch_assoc();
 
   if(isset($_POST['update_employee'])){
-    $ed = $_POST['emp_id'];
-    $firstname = $_POST['first_name'];
-    $lastname = $_POST['last_name'];
-    $dob = $_POST['dob'];
-    $tp = $_POST['type'];
-    $gend = $_POST['gender'];
-    $ln = $_POST['license_number'];
-    $phone = $_POST['phone_no'];
-    $sal = $_POST['salary'];
-    $query = "UPDATE employee set first_name = '$firstname' , last_name = '$lastname', dob = '$dob', type='$tp', gender = '$gend', license_number = '$ln', phone_no = '$phone', salary = '$sal' WHERE emp_id = '$empid'";
+    $ed = $_POST['empid'];
+    $fn = $_POST['firstname'];
+    $ln = $_POST['lastname'];
+    $db = $_POST['dateofbirth'];
+    $tp = $_POST['typeofwork'];
+    $gsel = $_POST['genderselect'];
+    $lnum = $_POST['licensenumber'];
+    $pn = $_POST['phoneno'];
+    $ms = $_POST['monthlysalary'];
+    $query = "UPDATE employee set first_name = '$fn' , last_name = '$ln', dob = '$db', type='$tp', gender = '$gsel', license_number = '$lnum', phone_no = '$pn', salary = '$ms' WHERE emp_id = '$id'";
     $result2 = mysqli_query($data, $query);
     if($result2){
       header("location:view_employee.php");
@@ -92,32 +92,32 @@
                 <form action="#" method="POST">
                   <div>
                     <label>Employee ID</label>
-                    <input type="number" name="emp_id" value="<?php
+                    <input type="number" name="empid" value="<?php
                     echo "{$info['emp_id']}";
-                    ?>" disabled>
+                    ?>" disabled required>
                   </div>
                   <div>
                     <label>First Name</label>
-                    <input type="text" name="first_name" value="<?php
+                    <input type="text" name="firstname" value="<?php
                     echo "{$info['first_name']}";
-                    ?>">
+                    ?>" required>
                   </div>
                   <div>
                     <label>Last name</label>
-                    <input type="text" name="last_name" value="<?php
+                    <input type="text" name="lastname" value="<?php
                     echo "{$info['last_name']}";
                     ?>">
                   </div>
                   <div>
                     <label>Date of Birth</label>
-                    <input type="date" name="dob" value="<?php
+                    <input type="date" name="dateofbirth" value="<?php
                     echo "{$info['dob']}";
-                    ?>">
+                    ?>" required>
                   </div>
 
                   <div>
                     <label for="type">Type</label>
-                    <select id="type" name="type">
+                    <select id="type" name="typeofwork">
                       <option value="driver" <?php if($info['type'] == "driver") echo "selected"; ?>>Driver</option>
                       <option value="conductor" <?php if($info['type'] == "conductor") echo "selected"; ?>>Conductor</option>
                       <option value="both" <?php if($info['type'] == "both") echo "selected"; ?>>Both</option>
@@ -126,35 +126,36 @@
 
 
                   <div class="gender-view">
-                    <label style="margin-left:250px;">Gender</label>
+                    <label style="margin-left: 250px;">Gender</label>
                     <div>
-                    <input type="radio" id="male" name="gender" <?php if($info['gender'] == "male") echo "checked"; ?>>
-                    <label for="male">Male</label>
+                        <input type="radio" value="male" name="genderselect" <?php if($info['gender'] == "male") echo "checked"; ?> required>
+                        <label for="male">Male</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="female" name="gender" <?php if($info['gender'] == "female") echo "checked"; ?>>
-                      <label for="female">Female</label>
-                    </div>
-                    
-                  </div>
+                        <input type="radio" value="female" name="genderselect" <?php if($info['gender'] == "female") echo "checked"; ?> required>
+                        <label for="female">Female</label>
+                    </div>                    
+                </div>
+
+
                   <div>
                     <label>License Number</label>
-                    <input type="text" name="license_number" value="<?php
+                    <input type="text" name="licensenumber" value="<?php
                     echo "{$info['license_number']}";
                     ?>">
                   </div>
                   <div>
                     <label>Phone Number</label>
-                    <input type="number" name="phone_no" value="<?php
+                    <input type="number" name="phoneno" value="<?php
                     echo "{$info['phone_no']}";
                     ?>">
                   </div>
                   <div>
                     <label>Salary</label>
-                    <input type="number" name="salary" value="<?php
+                    <input type="number" name="monthlysalary" value="<?php
                     echo "{$info['salary']}";
-                    ?>">
+                    ?>"required>
                   </div>
                   <div>
                     <input type="submit" name="update_employee" value="Update" class="submit-btn">

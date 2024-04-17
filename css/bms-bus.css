@@ -247,3 +247,54 @@ table{
 .hero-wrap{
   height : 1000px !important;
 }
+
+.side-text-viewmaintain {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7b71d;
+    width: 110%;
+    margin: auto;
+    margin-left: 22%;
+    padding: auto;
+    padding: 20px;
+    margin-top: -2%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.bus-aside-maintain {
+  background-color: #f7b71d;
+  margin-top: 180px !important;
+  padding: 20px;
+  position: absolute;
+  margin-left: -155px;
+  text-align: center;
+}
+
+.bus-aside-maintain li{
+  list-style: none;
+  font-size: 20px;
+  padding-bottom: 7.5px;
+  padding-top: 7.5px;
+  border-radius: 5px;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.bus-aside-maintain a{
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  transition: color 0.3s ease; 
+}
+
+.bus-aside-maintain li:hover{
+  background-color: #f7b71d;
+}
+
+.bus-aside-maintain li a:hover{
+  color: black;
+}

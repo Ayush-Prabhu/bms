@@ -21,7 +21,7 @@
     $cap = $_POST['cap'];
     $owner = $_POST['own'];
     $di = $_POST['did'];
-    $query = "UPDATE bus set bus_name = '$busname', model = '$model', capacity='$cap', ownership ='$owner', depot_id = '$di' WHERE bus_id = '$busid'";
+    $query = "UPDATE bus set bus_name = '$busname', model = '$model', capacity='$cap', ownership ='$owner', depot_id = '$di' WHERE bus_id = '$id'";
     
     $result2 = mysqli_query($data, $query);
     if($result2){
