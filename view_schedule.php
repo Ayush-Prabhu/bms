@@ -10,6 +10,7 @@ $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
+$rid=null;
 
 if(!empty($_POST['route_i'])){
   $rid=$_POST['route_i'];
@@ -75,19 +76,19 @@ $sql = "CALL scheduleview()";
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Local<span>Bus</span></a>
+	      <a class="navbar-brand" href="index.php">Local<span>Bus</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 				<div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="bus.html" class="nav-link">Bus</a></li>
-	          <li class="nav-item"><a href="employee.html" class="nav-link">Employee</a></li>
-	          <li class="nav-item active"><a href="route.html" class="nav-link">Routes & Schedules</a></li>
-	          <li class="nav-item"><a href="ticket.html" class="nav-link">Tickets</a></li>
-	          <li class="nav-item"><a href="maintenance.html" class="nav-link">Maintenance</a></li>
+	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="bus.php" class="nav-link">Bus</a></li>
+	          <li class="nav-item"><a href="employee.php" class="nav-link">Employee</a></li>
+	          <li class="nav-item active"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
+	          <li class="nav-item"><a href="ticket.php" class="nav-link">Tickets</a></li>
+	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
 	  </nav>
@@ -112,31 +113,32 @@ $sql = "CALL scheduleview()";
                   <label>Route id:</label><br>
                   <input type="text" name="route_i">
                 </form>
-                <table border="1.5px" bgcolor="cyan">
+                  <?php
+                  if(isset($rid)&&$result = mysqli_query($data,"SELEcT * from schedule where route_id=".$rid )){
+                    ?>
+                    <table border="1.5px" bgcolor="cyan">
                   <tr>
                     <th class="table_th">Schedule ID</th>
                     <th class="table_th">Route ID</th>
                     <th class="table_th">Bus ID</th>
                     <th class="table_th">Start Time</th>
                     <th class="table_th">Stop Time</th>
-
+                    <th class="table_th">Conductor</th>
+                    <th class="table_th">Driver</th>
                   </tr>
-
-                  <?php
-                  if(isset($rid)&&$result = mysqli_query($data,$sql)){
+                    <?php
                   while( $info=$result -> fetch_assoc()){   
-                    if($info['r_id']==$rid){
-                      
                     ?>
                     <tr>
-                      <td class="table_td"><?php echo "{$info['s_id']}"; ?></td>
-                      <td class="table_td"><?php echo "{$info['r_id']}"; ?></td>
-                      <td class="table_td"><?php echo "{$info['b_id']}"; ?></td>
-                      <td class="table_td"><?php echo "{$info['strt']}"; ?></td>
-                      <td class="table_td"><?php echo "{$info['stp']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['schedule_id']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['route_id']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['bus_id']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['start_time']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['stop_time']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['c_id']}"; ?></td>
+                      <td class="table_td"><?php echo "{$info['d_id']}"; ?></td>
                       </tr>
-                      <?php
-                      }
+                      <?php            
                     }
                   }
                       ?>
