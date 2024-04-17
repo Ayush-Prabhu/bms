@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,20 +16,17 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
+    <link rel="stylesheet" href="css/animate.css">   
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bmscss.css">
+    <link rel="stylesheet" href="css/bms-bus.css">
   </head>
   <body>
     
@@ -43,21 +47,29 @@
 	          <li class="nav-item active"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
+        <div>
+          <a href="login.php" class="bms-login-btn">Logout</a> 
+         </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
+    <div class="hero-wrap show fullscreen" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Contact us</h1>
+        <div class="row no-gutters slider-text justify-content-start align-items-center">
+          	<aside>
+              <ul class="bus-aside">
+                <li><a href="add_maintenance.php">Add Maintenance Records</a></li>
+                <li><a href="view_maintenance.php">View Maintenance Records</a></li>
+              </ul>
+            </aside>
+          <div class="col-lg-6 col side-text" style="color: black; font-size: 20px; margin-top:-20%;">
+            Welcome to Local Bus Management System!<br> You can add and view maintenance record data here.
           </div>
         </div>
       </div>
-    </section>
+    </div>	
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -74,10 +86,7 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-    
+  <script src="js/main.js"></script>    
   </body>
 </html>

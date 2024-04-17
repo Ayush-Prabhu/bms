@@ -1,9 +1,9 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("location:login.php");
-  }
-  
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location:login.php");
+}
+
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -15,7 +15,7 @@ if(isset($_POST['add_employee'])){
   $lastname = $_POST['last_name'];
   $dob = $_POST['dob'];
   $tp = $_POST['type'];
-  $gend = $_POST['gender'];
+  $gend = $_POST['genderselect'];
   $ln = $_POST['license_number'];
   $phone = $_POST['phone_no'];
   $sal = $_POST['salary'];
@@ -65,7 +65,7 @@ if(isset($_POST['add_employee'])){
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
   </head>
-  <body style="height:100%">
+  <body>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -127,17 +127,20 @@ if(isset($_POST['add_employee'])){
                     <option value="both">Both</option>
                   </select>
                 </div>
+
                 <div class="gender-view">
                   <label style="margin-left:250px;">Gender</label>
                   <div>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="genderselect" value="male" checked>
                     <label for="male">Male</label>
                   </div>
+
                   <div>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="genderselect" value="female">
                     <label for="female">Female</label>
                   </div>
                 </div>
+
                 <div>
                   <label>License Number</label>
                   <input type="text" name="license_number">

@@ -1,13 +1,24 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['username'])){
-    header("location:login.php");
-  }
+error_reporting(0);
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location:login.php");
+}
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db = "bms";
+$data = mysqli_connect($host, $user, $password, $db);
+
+$sql = "SELECT * FROM sort_by_name";
+$result = mysqli_query($data, $sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Local Bus - Employee</title>
+    <title>Local Bus - Sort Employee By Name</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,17 +61,57 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap show fullscreen" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           	<aside>
-              <ul class="bus-aside">
+              <ul class="bus-aside-emp">
                 <li><a href="add_employee.php">Add Employee</a></li>
                 <li><a href="view_employee.php">View Employee</a></li>
+                <li><a href="sortby_firstname.php">Sort by Name</a></li>
+                <li><a href="sortby_salary.php">Sort by Salary</a></li>
+                <li><a href="employee_age.php">Employee age</a></li>
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text" style="color: black; font-size: 20px">
-            Welcome to Local Bus Management System!<br> You can add and view employee data here.
+            <div class="side-text-viewempdata">
+           <h3>Employee Data</h3>
+           <?php
+           if($_SESSION['message']){
+            echo $_SESSION['message'];
+           }
+           unset($_SESSION['message']);
+           ?>
+           <table border="1.5px">
+            <tr>
+              <th class="table_th">Employee ID</th>
+              <th class="table_th">First Name</th>
+              <th class="table_th">Last Name</th>
+              <th class="table_th">Date of Birth</th>
+              <th class="table_th">Type</th>
+              <th class="table_th">Gender</th>
+              <th class="table_th">License Number</th>
+              <th class="table_th">Phone Number</th>
+              <th class="table_th">Salary</th>
+            </tr>
+
+            <?php
+            while($info = $result -> fetch_assoc()){            
+            ?>
+              <tr>
+                <td class="table_td"><?php echo "{$info['emp_id']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['first_name']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['last_name']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['dob']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['type']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['gender']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['license_number']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['phone_no']}"; ?></td>
+                <td class="table_td"><?php echo "{$info['salary']}"; ?></td>
+            </tr>
+            <?php
+            }
+            ?>
+           </table>
           </div>
         </div>
       </div>
@@ -68,6 +119,8 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>

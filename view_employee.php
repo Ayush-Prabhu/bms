@@ -68,6 +68,9 @@ $result = mysqli_query($data, $sql);
               <ul class="bus-aside-emp">
                 <li><a href="add_employee.php">Add Employee</a></li>
                 <li><a href="view_employee.php">View Employee</a></li>
+                <li><a href="sortby_firstname.php">Sort by Name</a></li>
+                <li><a href="sortby_salary.php">Sort by Salary</a></li>
+                <li><a href="employee_age.php">Employee age</a></li>
               </ul>
             </aside>
             <div class="side-text-viewempdata">
