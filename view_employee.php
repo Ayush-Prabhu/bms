@@ -4,16 +4,13 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
-
 $sql = "SELECT * FROM employee";
 $result = mysqli_query($data, $sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +18,9 @@ $result = mysqli_query($data, $sql);
     <title>Local Bus - View Employee</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">   
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
@@ -61,7 +50,7 @@ $result = mysqli_query($data, $sql);
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/bg_3.jpg'); height: 2750px !important;" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           	<aside>

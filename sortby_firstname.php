@@ -4,16 +4,13 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
-
 $sql = "SELECT * FROM sort_by_name";
 $result = mysqli_query($data, $sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,24 +18,15 @@ $result = mysqli_query($data, $sql);
     <title>Local Bus - Sort Employee By Name</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">   
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
   </head>
   <body>
-    
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Local<span>Bus</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +49,7 @@ $result = mysqli_query($data, $sql);
 	    </div>
 	  </nav>
     <!-- END nav -->
-    <div class="hero-wrap" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('images/bg_3.jpg'); height: 2750px !important;" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
           	<aside>
@@ -119,7 +107,6 @@ $result = mysqli_query($data, $sql);
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -19,6 +18,19 @@ if(isset($_POST['add_employee'])){
   $ln = $_POST['license_number'];
   $phone = $_POST['phone_no'];
   $sal = $_POST['salary'];
+
+  $age_query = "SELECT TIMESTAMPDIFF(YEAR, '$dob', CURDATE()) AS age";
+  $age_result = mysqli_query($data, $age_query);
+  $row = mysqli_fetch_assoc($age_result);
+  $age = $row['age'];
+  if ($age < 18 || $age > 65) {
+    echo "<script type='text/javascript'>
+          alert('Error: Age must be between 18 and 65.');
+          window.location.href = 'add_employee.php';
+          </script>";
+    exit();
+  }
+
   $check = "SELECT emp_id FROM employee WHERE emp_id = '$empid'";
   $check_user = mysqli_query($data, $check);
   $row_count = mysqli_num_rows($check_user);
@@ -50,17 +62,9 @@ if(isset($_POST['add_employee'])){
     <title>Local Bus - Add Employee</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">   
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
@@ -147,7 +151,7 @@ if(isset($_POST['add_employee'])){
                 </div>
                 <div>
                   <label>Phone Number</label>
-                  <input type="number" name="phone_no" pattern="[0-9]{10}" required>
+                  <input type="number" name="phone_no" required>
                 </div>
                 <div>
                 <div>
@@ -168,7 +172,6 @@ if(isset($_POST['add_employee'])){
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -180,7 +183,6 @@ if(isset($_POST['add_employee'])){
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-    
+  <script src="js/main.js"></script>  
   </body>
 </html>
