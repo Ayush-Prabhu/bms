@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -50,14 +49,6 @@ if(isset($_POST['add_route'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">   
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
@@ -103,23 +94,23 @@ if(isset($_POST['add_route'])){
               <form action="route.php" method="POST" id="insert_route_form">
                 <div>
                   <label class="label-deg">Route ID</label>
-                  <input type="text" name="route_id" placeholder="Enter route id">
+                  <input type="number" name="route_id" required>
                 </div>
                 <div>
                   <label class="label-deg">Start Point</label>
-                  <input type="text" name="start_point" placeholder="Enter start point">
+                  <input type="text" name="start_point" required>
                 </div>
                 <div>
                   <label class="label-deg">Stop Point</label>
-                  <input type="text" name="stop_point" placeholder="Enter stop point">
+                  <input type="text" name="stop_point" required>
                 </div>
                 <div>
                   <label class="label-deg">Distance</label>
-                  <input type="text" name="distance" placeholder="Enter distance">
+                  <input type="number" name="distance" required>
                 </div>
                 <div>
                   <label class="label-deg">Number of stops</label>
-                  <input type="text" name="no_of_stops" placeholder="Enter number of stops">
+                  <input type="number" name="no_of_stops" required>
                 </div>
                 <div>
                   <input type="Submit" name="add_route" value="ADD ROUTE" class="submit-btn">
@@ -134,7 +125,6 @@ if(isset($_POST['add_route'])){
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -145,11 +135,7 @@ if(isset($_POST['add_route'])){
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-    
+  <script src="js/main.js"></script>    
   </body>
 </html>

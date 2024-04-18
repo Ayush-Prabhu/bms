@@ -3,14 +3,12 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
-if(isset($_POST['add_schedule'])){
-  
+if(isset($_POST['add_schedule'])){ 
   $scheduleid = $_POST['schedule_id'];
   $routeid = $_POST['route_id'];
   $start_time= $_POST['start_time'];
@@ -22,20 +20,17 @@ if(isset($_POST['add_schedule'])){
   $fk_check = "SELECT route_id FROM route WHERE route_id = '$routeid'";
   $fk_check_user = mysqli_query($data, $fk_check);
   $rc = mysqli_num_rows($fk_check_user);
-  if(empty($_POST['route_id']) ){//not null template
-    
+  if(empty($_POST['route_id']) ){//not null template   
     echo "<script type = 'text/javascript'>
       alert('Please enter route id')
       </script>";
   }
-  elseif( $rc < 1){
-    
+  elseif( $rc < 1){   
     echo "<script type = 'text/javascript'>
       alert('Route does not exists')
       </script>";
   }
-  else{
-    
+  else{   
     $check = "SELECT schedule_id FROM schedule WHERE schedule_id = '$scheduleid'";
     $check_user = mysqli_query($data, $check);
     $row_count = mysqli_num_rows($check_user);
@@ -122,31 +117,31 @@ if(isset($_POST['add_schedule'])){
               <form action="schedule.php" method="POST" id="insert_schedule_form">
                 <div>
                   <label class="label-deg">Schedule ID</label>
-                  <input type="text" name="schedule_id" placeholder="Enter schedule id">
+                  <input type="number" name="schedule_id" required>
                 </div>
                 <div>
                   <label class="label-deg">Route ID</label>
-                  <input type="text" name="route_id" placeholder="Enter route id">
+                  <input type="number" name="route_id" required>
                 </div>
                 <div>
                   <label class="label-deg">Start Time</label>
-                  <input type="text" name="start_time" placeholder="Enter start time">
+                  <input type="time" name="start_time" required>
                 </div>
                 <div>
-                  <label class="label-deg">Stop Point</label>
-                  <input type="text" name="stop_time" placeholder="Enter stop time">
+                  <label class="label-deg">Stop Time</label>
+                  <input type="time" name="stop_time" required>
                 </div>
                 <div>
                   <label class="label-deg">Bus ID</label>
-                  <input type="text" name="bus_id" placeholder="Enter bus id">
+                  <input type="number" name="bus_id" required>
                 </div>
                 <div>
                   <label class="label-deg">Conductor ID</label>
-                  <input type="text" name="c_id" placeholder="Enter conductor id">
+                  <input type="number" name="c_id" required>
                 </div>
                 <div>
                   <label class="label-deg">Driver ID</label>
-                  <input type="text" name="d_id" placeholder="Enter driver id">
+                  <input type="number" name="d_id" required>
                 </div>
                 <div>
                   <input type="Submit" name="add_schedule" value="ADD SCHEDULE" class="submit-btn">
@@ -161,7 +156,6 @@ if(isset($_POST['add_schedule'])){
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -172,13 +166,6 @@ if(isset($_POST['add_schedule'])){
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-    
+  <script src="js/main.js"></script>  
   </body>
 </html>

@@ -3,14 +3,12 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
 $rid=null;
-
 if(!empty($_POST['route_i'])){
   $rid=$_POST['route_i'];
 }
@@ -40,11 +38,10 @@ $sql = "
       CLOSE cur;
     END;
 ";
-
 mysqli_query($data,$sql);
 $sql = "CALL scheduleview()";
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,14 +51,6 @@ $sql = "CALL scheduleview()";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">   
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bmscss.css">
     <link rel="stylesheet" href="css/bms-bus.css">
@@ -100,18 +89,18 @@ $sql = "CALL scheduleview()";
               <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
             </ul>
           </aside>
-          <div class="col-lg-6 col side-text">
+          <div class="col side-text-viewempdata" style="margin-top: 20%;margin-left: 19%;">
             <h3>Schedule</h3>
             <div>
-              <div class="col-lg-6 col side-text-addcontent">
+              <div>
                 <form action="view_schedule.php" method="POST">
                   <label>Route id:</label><br>
-                  <input type="text" name="route_i" placeholder="Enter route id"required>
+                  <input type="text" name="route_i"required>
                 </form>
                   <?php
-                  if(isset($rid)&&$result = mysqli_query($data,"SELEcT * from schedule where route_id=".$rid )){
+                  if(isset($rid)&&$result = mysqli_query($data,"SELECT * from schedule where route_id=".$rid )){
                     ?>
-                    <table border="1.5px" bgcolor="cyan">
+                    <table border="1.5px">
                   <tr>
                     <th class="table_th">Schedule ID</th>
                     <th class="table_th">Route ID</th>
@@ -160,13 +149,6 @@ $sql = "CALL scheduleview()";
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-    
+  <script src="js/main.js"></script>   
   </body>
 </html>

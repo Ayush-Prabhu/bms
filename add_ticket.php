@@ -4,15 +4,13 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location:login.php");
 }
-
 $host = "localhost";
 $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
 if(isset($_POST['add_ticket'])){
-     
-                
+                   
   $rid =floor($_POST['src_id']/100);
   $rid1 =floor($_POST['dst_id']/100);
   $srcid = $_POST['src_id'];
@@ -117,7 +115,6 @@ if(isset($_POST['add_ticket'])){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -129,15 +126,6 @@ if(isset($_POST['add_ticket'])){
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">   
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bms-bus.css">
     <link rel="stylesheet" href="css/bmscss.css">
@@ -166,8 +154,7 @@ if(isset($_POST['add_ticket'])){
         </div>
 	    </div>
 	  </nav>
-    <!-- END nav -->
-    
+    <!-- END nav -->   
     <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center">
@@ -183,13 +170,12 @@ if(isset($_POST['add_ticket'])){
               <form action="#" method="POST">
               <div>
                   <label>Source ID</label>
-                  <input type="number" name="src_id">
+                  <input type="number" name="src_id" required>
                 </div>
                 <div>
                   <label>Destination ID</label>
-                  <input type="number" name="dst_id">
-                </div>
-                
+                  <input type="number" name="dst_id" required>
+                </div>               
                 <div>
                   <input type="submit" name="add_ticket" value="Add Ticket" class="submit-btn">
                 </div>
@@ -202,8 +188,6 @@ if(isset($_POST['add_ticket'])){
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -214,11 +198,7 @@ if(isset($_POST['add_ticket'])){
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
-    
   </body>
 </html>
