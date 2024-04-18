@@ -93,12 +93,12 @@ if(isset($_POST['add_schedule'])){
 
 				<div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="bus.html" class="nav-link">Bus</a></li>
-	          <li class="nav-item"><a href="employee.html" class="nav-link">Employee</a></li>
-	          <li class="nav-item active"><a href="route.html" class="nav-link">Routes & Schedules</a></li>
-	          <li class="nav-item"><a href="ticket.html" class="nav-link">Tickets</a></li>
-	          <li class="nav-item"><a href="maintenance.html" class="nav-link">Maintenance</a></li>
+	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="bus.php" class="nav-link">Bus</a></li>
+	          <li class="nav-item"><a href="employee.php" class="nav-link">Employee</a></li>
+	          <li class="nav-item active"><a href="route.php" class="nav-link">Routes & Schedules</a></li>
+	          <li class="nav-item"><a href="ticket.php" class="nav-link">Tickets</a></li>
+	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
 	  </nav>

@@ -5,7 +5,6 @@ $user = "root";
 $password = "";
 $db = "bms";
 $data = mysqli_connect($host, $user, $password, $db);
-
 if($_GET['bd']){
 $bid = $_GET['bd'];
 $sql = "DELETE FROM bus where bus_id = '$bid'";

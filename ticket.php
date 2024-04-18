@@ -45,6 +45,9 @@
 	          <li class="nav-item"><a href="maintenance.php" class="nav-link">Maintenance</a></li>
 	        </ul>
 	      </div>
+        <div>
+         <a href="logout.php" class="bms-login-btn">Logout</a> 
+        </div>
 	    </div>
 	  </nav>
     <!-- END nav -->

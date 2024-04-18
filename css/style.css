@@ -8217,7 +8217,8 @@ h1, h2, h3, h4, h5,
     content: '';
     opacity: .4;
     background: #000000;
-    height: 850px; }
+    height: 1010px;
+}
   @media (max-width: 991.98px) {
     .hero-wrap {
       height: 1150px; }
