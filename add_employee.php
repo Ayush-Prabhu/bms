@@ -37,7 +37,7 @@ if(isset($_POST['add_employee'])){
     }
     else{
       echo "<script type = 'text/javascript'>
-      alert('Employee add failed')
+      alert('Employee add failed. Check the added data again.')
       </script>";
     }
   }
@@ -105,11 +105,11 @@ if(isset($_POST['add_employee'])){
               <form action="#" method="POST">
               <div>
                   <label>Employee ID</label>
-                  <input type="number" name="emp_id">
+                  <input type="number" name="emp_id" required>
                 </div>
                 <div>
                   <label>First Name</label>
-                  <input type="text" name="first_name">
+                  <input type="text" name="first_name" required>
                 </div>
                 <div>
                   <label>Last Name</label>
@@ -117,7 +117,7 @@ if(isset($_POST['add_employee'])){
                 </div>
                 <div>
                   <label>Date of Birth</label>
-                  <input type="date" name="dob">
+                  <input type="date" name="dob" required>
                 </div>
                 <div>
                   <label for="type">Type</label>
@@ -131,12 +131,12 @@ if(isset($_POST['add_employee'])){
                 <div class="gender-view">
                   <label style="margin-left:250px;">Gender</label>
                   <div>
-                    <input type="radio" id="male" name="genderselect" value="male" checked>
+                    <input type="radio" id="male" name="genderselect" value="male" checked required>
                     <label for="male">Male</label>
                   </div>
 
                   <div>
-                    <input type="radio" id="female" name="genderselect" value="female">
+                    <input type="radio" id="female" name="genderselect" value="female" required>
                     <label for="female">Female</label>
                   </div>
                 </div>
@@ -147,12 +147,12 @@ if(isset($_POST['add_employee'])){
                 </div>
                 <div>
                   <label>Phone Number</label>
-                  <input type="number" name="phone_no">
+                  <input type="number" name="phone_no" pattern="[0-9]{10}" required>
                 </div>
                 <div>
                 <div>
                   <label>Salary</label>
-                  <input type="number" name="salary">
+                  <input type="number" name="salary" required>
                 </div>
                 <div>
                 <div>

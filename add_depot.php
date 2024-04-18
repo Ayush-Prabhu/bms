@@ -106,11 +106,11 @@ if(isset($_POST['add_depot'])){
               <form action="" method="POST">
               <div>
                   <label>Depot ID</label>
-                  <input type="number" name="depot_id">
+                  <input type="number" name="depot_id" required>
                 </div>
                 <div>
                   <label>Depot Name</label>
-                  <input type="text" name="depot_name">
+                  <input type="text" name="depot_name" required>
                 </div>
                 <div>
                   <input type="submit" name="add_depot" value="Add Depot" class="submit-btn">

@@ -110,30 +110,30 @@ if(isset($_POST['add_bus'])){
               <form action="#" method="POST">
               <div>
                   <label>Bus ID</label>
-                  <input type="number" name="bus_id">
+                  <input type="number" name="bus_id" required>
                 </div>
                 <div>
                   <label>Bus Name</label>
-                  <input type="text" name="bus_name">
+                  <input type="text" name="bus_name" required>
                 </div>
                 <div>
                   <label>Bus Model</label>
-                  <input type="text" name="model">
+                  <input type="text" name="model" required>
                 </div>
                 <div>
                   <label>Capacity</label>
-                  <input type="number" name="capacity">
+                  <input type="number" name="capacity" required>
                 </div>
                 <div class="radio-btn">
                   <label style="font-weight:700; font-size:16px;">Ownership</label>
                   <div class="rad">
-                  <input type="radio" name="ownership" value="public">Public
-                  <input type="radio" name="ownership" value="private">Private
+                  <input type="radio" name="ownership" value="public" required>Public
+                  <input type="radio" name="ownership" value="private" required checked>Private
                   </div>
                 </div>
                 <div>
                   <label>Depot ID</label>
-                  <input type="number" name="depot_id">
+                  <input type="number" name="depot_id" required>
                 </div>
                 <div>
                   <input type="submit" name="add_bus" value="Add Bus" class="submit-btn">

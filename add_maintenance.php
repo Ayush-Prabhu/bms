@@ -103,11 +103,11 @@ if(isset($_POST['add_maintenance'])){
               <form action="#" method="POST">
               <div>
                   <label>Insurance ID</label>
-                  <input type="number" name="insuranceid">
+                  <input type="number" name="insuranceid" required>
                 </div>
                 <div>
                   <label>Bus ID</label>
-                  <input type="number" name="busid">
+                  <input type="number" name="busid" required>
                 </div>
                 <div>
                   <label for="status">Status</label>
@@ -118,12 +118,12 @@ if(isset($_POST['add_maintenance'])){
                 </div>
                 <div>
                   <label>Last Maintenance Date</label>
-                  <input type="date" name="lastmaintain">
+                  <input type="date" name="lastmaintain" required>
                 </div>
                 <div>
                 <div>
                   <label>Next Maintenance Date</label>
-                  <input type="date" name="nextmaintain">
+                  <input type="date" name="nextmaintain" required>
                 </div>
                 <div>
                   <input type="submit" name="add_maintenance" value="Add Record" class="submit-btn">

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
@@ -68,25 +67,20 @@ if(isset($_POST['add_schedule'])){
     <title>Local Bus - Schedules</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bmscss.css">
+    <link rel="stylesheet" href="css/bms-bus.css">
   </head>
   <body>
     
@@ -122,7 +116,7 @@ if(isset($_POST['add_schedule'])){
               <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
             </ul>
           </aside>
-          <div class="col-lg-6 col side-text">
+          <div class="col-lg-6 col side-text" style="margin-top: -36px !important;">
             <h3>Add Schedule</h3>
             <div>
               <form action="schedule.php" method="POST" id="insert_schedule_form">
@@ -155,7 +149,7 @@ if(isset($_POST['add_schedule'])){
                   <input type="text" name="d_id" placeholder="Enter driver id">
                 </div>
                 <div>
-                  <input type="Submit" name="add_schedule" value="ADD SCHEDULE">
+                  <input type="Submit" name="add_schedule" value="ADD SCHEDULE" class="submit-btn">
                 </div>
               </form>
             </div>
