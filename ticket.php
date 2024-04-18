@@ -47,17 +47,22 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
+    <div class="hero-wrap" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Read our blog</h1>
+        <div class="row no-gutters slider-text justify-content-start align-items-center">
+          	<aside>
+              <ul class="bus-aside">
+                <li><a href="add_ticket.php">Add Ticket</a></li>
+                <li><a href="view_ticket.php">View Ticket</a></li>
+              </ul>
+            </aside>
+          
+            <div class="col-lg-6 col side-text" style="color: black; font-size: 20px">
+            Welcome to Local Bus Management System!<br> You can add and view tickets here.
           </div>
         </div>
       </div>
-    </section>
+    </div>	
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
