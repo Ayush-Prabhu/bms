@@ -60,7 +60,7 @@ $result = mysqli_query($data, $sql);
                 <li><a href="view_ticket.php">View Ticket</a></li>
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text-addcontent">
+          <div class="side-text-addcontent" style="margin-top:50px">
            <h3>Ticket Data</h3>
            <?php
            if($_SESSION['message']){

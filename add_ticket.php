@@ -101,7 +101,7 @@ if(isset($_POST['add_ticket'])){
             $result = mysqli_query($data, $sql);
             if($result){
             echo "<script type = 'text/javascript'>
-            alert('Ticket added successfully:fare=$fare ticket id= $ticketid');
+            alert('Ticket added successfully: Fare = $fare Ticket ID = $ticketid');
 
             </script>";
             }

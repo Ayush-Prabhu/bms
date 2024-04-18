@@ -61,7 +61,7 @@ $result = mysqli_query($data, $sql);
                 <li><a href="delete_schedule.php">Delete Schedule</a></li><!--pending-->
               </ul>
             </aside>
-          <div class="col-lg-6 col side-text-addcontent">
+          <div class="side-text-addcontent" style="margin-top: 118px;">
            <h3>Route Data</h3>
            <?php
            if($_SESSION['message']){

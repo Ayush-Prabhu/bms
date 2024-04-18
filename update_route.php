@@ -18,7 +18,7 @@
     $routeid = $_POST['rid'];
     $startpoint = $_POST['startpt'];
     $stoppoint = $_POST['stoppt'];
-    $distance = $_POST['dist'];
+    $distance = $_POST['distance'];
     $no_of_stops = $_POST['no_of_stops'];
     
     $query = "UPDATE route set start_point = '$startpoint',stop_point='$stoppoint',distance='$distance',no_of_stops='$no_of_stops' WHERE route_id = '$id'";
@@ -28,28 +28,15 @@
     }
   }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Local Bus - Route Update</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">   
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">  
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bms-bus.css">
     <link rel="stylesheet" href="css/bmscss.css">
@@ -99,32 +86,32 @@
                 <div>
                   <label>Route ID</label>
                   <input type="number" name="rid" value="<?php
-                  echo "{$info['ROUTE_ID']}";
+                  echo "{$info['route_id']}";
                   ?>" disabled>
                 </div>
                 <div>
                   <label>Start Point</label>
                   <input type="text" name="startpt" value="<?php
-                  echo "{$info['START_PoinT']}";
-                  ?>" >
+                  echo "{$info['start_point']}";
+                  ?>" required>
                 </div>
                 <div>
                   <label>Stop Point</label>
                   <input type="text" name="stoppt" value="<?php
-                  echo "{$info['STOP_PoinT']}";
-                  ?>">
+                  echo "{$info['stop_point']}";
+                  ?>" required>
                 </div>
                 <div>
                   <label>Distance</label>
                   <input type="number" name="distance" value="<?php
-                  echo "{$info['DISTANCE']}";
-                  ?>" >
+                  echo "{$info['distance']}";
+                  ?>"  required>
                 </div>
                 <div>
                   <label>Number of Stops</label>
                   <input type="number" name="no_of_stops" value="<?php
-                  echo "{$info['NO_OF_STOPS']}";
-                  ?>" >
+                  echo "{$info['no_of_stops']}";
+                  ?>"  required>
                 </div>
                 <div>
                   <input type="submit" name="update_route" value="Update" class="submit-btn">
@@ -150,9 +137,6 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
     
