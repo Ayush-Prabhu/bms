@@ -1,11 +1,6 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-
+include "connection_details.php";
 if($_GET['iid']){
 $id = $_GET['iid'];
 $sql = "DELETE FROM maintenance where insurance_id = '$id'";

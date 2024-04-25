@@ -1,10 +1,6 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
+include "connection_details.php";
 if ($_GET['depotid']) {
   $did = $_GET['depotid'];
   $check_sql = "SELECT * FROM bus WHERE depot_id = '$did'";

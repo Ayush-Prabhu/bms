@@ -1,13 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
+include "connection.php";
+include "connection_details.php";
 $rid=null;
 if(!empty($_POST['route_i'])){
   $rid=$_POST['route_i'];

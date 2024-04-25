@@ -1,16 +1,6 @@
 <?php
 error_reporting(0);
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
-
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-
+include "connection_details.php";
 $sql = "SELECT * FROM public_bus";
 $result = mysqli_query($data, $sql);
 

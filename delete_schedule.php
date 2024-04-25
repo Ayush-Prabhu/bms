@@ -1,11 +1,6 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
-
+include "connection_details.php";
 if(isset($_POST['del'])){
 $scid = $_POST['sc_id'];
 

@@ -1,14 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])){
-    header("location:login.php");
-    exit;
-}
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
+include "connection.php";
+include "connection_details.php";
 if(isset($_POST['add_maintenance'])){
     $iid = $_POST['insuranceid'];
     $bid = $_POST['busid'];

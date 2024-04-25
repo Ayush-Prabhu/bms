@@ -1,14 +1,6 @@
-<!--Pending validate source id and destination id within number of stops-->
 <?php
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
+include "connection.php";
+include "connection_details.php";
 if(isset($_POST['add_ticket'])){
                    
   $rid =floor($_POST['src_id']/100);

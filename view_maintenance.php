@@ -1,14 +1,7 @@
 <?php
 error_reporting(0);
-session_start();
-if(!isset($_SESSION['username'])){
-  header("location:login.php");
-}
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "bms";
-$data = mysqli_connect($host, $user, $password, $db);
+include "connection.php";
+include "connection_details.php";
 $sql = "SELECT * FROM maintenance";
 $result = mysqli_query($data, $sql);
 ?>
